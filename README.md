@@ -20,8 +20,7 @@
  
 </p>
 
-<details>
-<summary>Colaboradores: </summary><br>
+<h3>Colaboradores: </h3><br>
 <ul>
   <li>Segovia, Cinthia Fernanda </li>
   <li>Diaz Luna, Giuliana Paola </li>
