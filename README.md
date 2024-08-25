@@ -11,7 +11,7 @@
   <a href="https://www.java.com/"><img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Java" width="90" height="90"></a>
   <a href="https://www.javascript.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript" width="80" height="80"></a>
   <a href="https://www.python.org"><img src="https://miro.medium.com/v2/resize:fit:378/1*y6zvdl68fA-5nd9v-StFMg.png" alt="Python" width="90" height="90"></a>
-  <a href="https://nodejs.org/"><img src="https://vistaran-tech.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/05/13104926/nodejs-logo.png" alt="Node.js" width="100" height="100"></a>
+  <a href="https://nodejs.org/"><img src="https://i0.wp.com/softonitg.com/wp-content/uploads/2024/02/node-js-seeklogo-1.png?w=836&ssl=1g" alt="Node.js" width="100" height="100"></a>
   
 </div>
 
