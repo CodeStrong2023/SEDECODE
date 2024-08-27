@@ -39,7 +39,13 @@
 
 <h2> 🗓️ Organización por Sprint 4to Semestre 2024: </h2>
 
-| **Sprint** | **Scrum Master Asignado** 👨‍💻 |
-| ------------- |:-------------:|
-| Semana 1 | *Giuliana Paola Diaz luna - Metodologoia de Sistemas* |
-| Semana 2 | ** |
+| **Sprint** |            **Scrum Master Asignado** 👨‍💻            |
+|------------|:-----------------------------------------------------:|
+| Semana 1   | *Giuliana Paola Diaz luna - Metodologoia de Sistemas* |
+| Semana 2   |          *María del Rosario Campora Lorenzo*          |
+| Semana 3   |              *Cinthia Fernanda Segovia*               |
+| Semana 4   |                *Augusto Damián Monza*                 |
+| Semana 5   |          **          |
+| Semana 6   |          **          |
+| Semana 7   |          **          |
+
