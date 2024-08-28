@@ -10,6 +10,8 @@ function iniciarJuego() {
     botonPersonajeJugador.addEventListener('click', seleccionarPersonajeJugador);
     let sectionReiniciar = document.getElementById('reiniciar')
     sectionReiniciar.style.display = "none"
+	let mensajes = document.getElementById('mensajes')
+    mensajes.style.display = "none"
 
     document.getElementById("reglas-del-juego").style.display = "none";
 
@@ -35,6 +37,7 @@ function mostrarReglas() {
     document.getElementById('boton-reglas').style.display = 'none';
     document.getElementById('seleccionar-personaje').style.display = 'none';
     document.getElementById('boton-jugar').addEventListener('click', seleccionarPersonajeJugador);
+	window.scrollTo(0, document.body.scrollHeight);
 }
 
 function seleccionarPersonajeJugador() {
@@ -83,7 +86,7 @@ function seleccionarPersonajeJugador() {
     seleccinarPersonajeEnemigo()
 }
 
-function seleccinarPersonajeEnemigo() { //esta función va dentro de seleccionarPersonajeJugador() al final
+function seleccinarPersonajeEnemigo() { //Esta función va dentro de seleccionarPersonajeJugador() al final
     let personajeAleatorio = aleatorio(1, 4) //A continuación creamos las variables para cada personaje
     let spanPersonajeEnemigo = document.getElementById('personaje-enemigo')
 
@@ -135,21 +138,25 @@ function combate() {
     if (ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE")
     } else if (ataqueJugador == 'Punio' && ataqueEnemigo == 'Barrida') {
+		bajarVida("E")
         crearMensaje("GANASTE")
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
     } else if (ataqueJugador == 'Patada' && ataqueEnemigo == 'Punio') {
+		bajarVida("E")
         crearMensaje("GANASTE")
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
     } else if (ataqueJugador == 'Barrida' && ataqueEnemigo == 'Patada') {
+		bajarVida("E")
         crearMensaje("GANASTE")
         vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo
+        spanVidasEnemigo.innerHTML = vidasEnemigo		
     } else {
+		bajarVida("Y")
         crearMensaje("PERDISTE")
         vidasJugador--
-        spanVidasJugador.innerHTML = vidasJugador
+        spanVidasJugador.innerHTML = vidasJugador		
     }
     //Revisar vidas
     revisarVidas()
@@ -199,5 +206,40 @@ function reiniciarJuego(){
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+let vidaActual = 100;
+let vidaActualEnemigo = 100;
+
+function bajarVida(p) {
+	if (p == "Y") {
+		if (vidaActual > 0) {
+			vidaActual -= 33;
+			if (vidaActual < 0) vidaActual = 0;
+			document.getElementById("barraVida").style.width = vidaActual + "%";
+		}		
+	} else {
+		if (vidaActualEnemigo > 0) {
+			vidaActualEnemigo -= 33;
+			if (vidaActualEnemigo < 0) vidaActualEnemigo = 0;
+			document.getElementById("barraVidaEnemigo").style.width = vidaActualEnemigo + "%";
+		}
+	}
+}
+
+function detallePelea(){
+	let mensajes = document.getElementById('mensajes')
+	let botonDetallePelea = document.getElementById('boton-detalle-pelea')
+	
+	if (mensajes.style.display == "block") {
+		mensajes.style.display = "none"
+		botonDetallePelea.innerText = 'Ver Detalle Pelea';
+		
+	} else{
+		mensajes.style.display = "block"
+		botonDetallePelea.innerText = 'Ocultar Detalle Pelea';
+	}    
+	window.scrollTo(0, document.body.scrollHeight);
+}
+
 
 window.addEventListener('load', iniciarJuego)
