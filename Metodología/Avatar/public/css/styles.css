@@ -4,7 +4,10 @@ body {
     /*background-color: #000; /* Fondo negro */
 
     background-image: url('../assets/avatar.png');
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/avatar.png'); 
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/avatar.jpg');
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
     
 
     color: #fff;
@@ -15,6 +18,49 @@ body {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+}
+
+/* Contenedor de los personajes */
+#seleccionar-personaje {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Botones de personajes */
+.personaje {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 120px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px; /* Aumenta el espacio alrededor de cada botón */
+}
+
+/* Efecto hover */
+.personaje:hover {
+    background-color: #555555; /* Color más claro para el hover */
+    transform: scale(1.05);
+}
+
+/* Estilo para el personaje seleccionado */
+
+.personaje.selected {
+    background-color: #FFD700; /* O el color que prefieras para el botón seleccionado */
+    border-color: #000;
+    color: #000; /* Un borde blanco, por ejemplo */
+}
+
+#mensajes-pelea p {
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #555;
 }
 
 
@@ -92,18 +138,25 @@ input[type="radio"] {
 /* Estilización de Botones */
 
 button {
-    background-color: #1E90FF;
+    background-color: #DC143C; /* Firebrick */
     color: white;
     border: none;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
+    width: 70%;
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 100%;
     margin-top: 10px;
     font-size: 16px;
-
+    
 }
+
+button:hover {
+    background-color: #DC143C; /* Crimson Red */
+    transform: scale(1.05);
+}
+
 
 #reiniciar {
     text-align: center;
@@ -169,8 +222,6 @@ button {
 		margin: 0 10px;
 	}
 }
-
-
 
 
 .vida-container {
