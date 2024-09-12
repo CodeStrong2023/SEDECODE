@@ -45,6 +45,6 @@
 | Semana 2   |          *María del Rosario Campora Lorenzo*          |
 | Semana 3   |              *Cinthia Fernanda Segovia*               |
 | Semana 4   |                *Augusto Damián Monza*                 |
-| Semana 5   |          **          |
+| Semana 5   |                    *Marcelo Lamas*                    |
 | Semana 6   |          **          |
 | Semana 7   |          **          |
