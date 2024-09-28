@@ -240,3 +240,28 @@ button:hover {
     background-color: green;
     transition: width 0.5s ease;
 }
+
+
+/* Estilo del input */
+input[type="text"] {
+    width: 94%; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ced4da; /* Color del borde */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+/* Efecto al recibir foco */
+input[type="text"]:focus {
+    border-color: #80bdff; /* Color del borde al recibir foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al recibir foco */
+    outline: none; /* Elimina el contorno por defecto */
+    margin-top: 20px;
+}
+
+/* Placeholder */
+input[type="text"]::placeholder {
+    color: #6c757d; /* Color del placeholder */
+    opacity: 1; /* Asegura que el color sea visible */
+}

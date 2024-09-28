@@ -39,13 +39,9 @@
        
                         <li><strong>Victoria del Jugador:</strong>
                             <ul>
-       
                                 <li>Puño ✊ vence a Barrida 👣.</li>
-       
                                 <li>Patada 🦶 vence a Puño ✊.</li>
-       
                                 <li>Barrida 👣 vence a Patada 🦶.</li>
-       
                             </ul>
                         </li>
                         <li><strong>Derrota del Jugador:</strong> Cualquier otra combinación.</li>
@@ -74,24 +70,25 @@
                 <br>
                 <li><strong>Reinicio del Juego:</strong>
                     <ul>
-       
                         <li>El jugador puede reiniciar el juego, recargando la página.</li>
-       
                     </ul>
                 </li>
             </ol>
             <button id="boton-jugar">Jugar</button>
         </section>
-       
+        <section id="form-creacion-de-personaje">
+            <form>
+                <h2>Crear un nuevo personaje</h2>
+                <input type="text" id="nombre-personaje-creado" placeholder="Escribe el nombre aquí..." />
+                <button id="boton-crea-un-personaje">Crear Personaje</button>
+            </form>
+        </section>
         <section id="seleccionar-personaje">
             <h2>Elige tu Personaje</h2>
-
-            <button class="personaje" id="zuko">Zuko</button>
-            <button class="personaje" id="katara">Katara</button>
-            <button class="personaje" id="aang">Aang</button>
-            <button class="personaje" id="toph">Toph</button>
+            <div id="contenedor-personajes" class="personajes"></div> <!-- Personajes generados aquí -->
             <br><br>
             <button id="boton-personaje">Seleccionar</button> <!-- El botón para seleccionar el personaje-->
+            <button id="boton-crear-personaje">Crear Personaje</button> <!-- El botón para seleccionar el personaje-->
         </section>
 
         <section id="seleccionar-ataque">
@@ -114,7 +111,7 @@
         
         <section id="reiniciar">
 			<p>		
-				<button id="boton-detalle-pelea" onclick="detallePelea()">Ver Detalle Pelea</button>
+				<button id="boton-detalle-pelea">Ver Detalle Pelea</button>
 				<button id="boton-reiniciar">Reiniciar</button>
 			</p>
         </section>
