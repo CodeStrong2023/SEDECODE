@@ -18,11 +18,11 @@ import lombok.ToString;
 @AllArgsConstructor // constructor con todos los argumentos
 @ToString
 
-// Creamos la clase Entidad Estudiante
-public class Estudiante {
+// Creamos la clase Entidad Estudiante que apunta a la tabla de la bd
+public class Estudiantes2022 {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY) //es para llaves primarias autoincremental
-    private Integer idEstudiante;
+    private Integer idestudiantes2022;
     private String nombre;
     private String apellido;
     private String telefono;
