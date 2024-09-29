@@ -1,0 +1,52 @@
+{% include 'admin/header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">Datos del producto</div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="txtNombre" class="form-label">Nombre</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="txtNombre"
+                                id="txtNombre"
+                                aria-describedby="helpId"
+                                placeholder="Escriba el nombre del producto"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtImagen" class="form-label">Imagen</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="txtImagen"
+                                id="txtImagen"
+                                aria-describedby="helpId"
+                                placeholder="Seleccione la imagen"
+                            />
+                            <small id="helpId" class="form-text text-muted">Help text</small>
+                        </div>
+                        
+                        
+
+
+                    </form>
+                </div>
+                <div class="card-footer text-muted">Footer</div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            Second Column
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% include 'admin/footer.html' %}

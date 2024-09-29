@@ -22,5 +22,9 @@ def admin_index():
 def admin_login():
     return render_template('admin/login.html')
 
+@app.route('/admin/products')
+def products():
+    return render_template('admin/products.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
