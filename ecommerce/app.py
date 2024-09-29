@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -25,6 +25,11 @@ def admin_login():
 @app.route('/admin/products')
 def products():
     return render_template('admin/products.html')
+
+@app.route('/admin/products/send', methods=['POST'])
+def admin_products_send():
+    print(request.form['txtNombre'])
+    return redirect('/admin/products')
 
 if __name__ == '__main__':
     app.run(debug=True)

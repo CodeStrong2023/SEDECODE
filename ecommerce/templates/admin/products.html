@@ -1,37 +1,32 @@
 {% include 'admin/header.html' %}
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header">Datos del producto</div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{ url_for('admin_products_send') }}" method="post">
                         <div class="mb-3">
                             <label for="txtNombre" class="form-label">Nombre</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="txtNombre"
-                                id="txtNombre"
-                                aria-describedby="helpId"
-                                placeholder="Escriba el nombre del producto"
-                            />
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre"
+                                aria-describedby="helpId" placeholder="Escriba el nombre del producto" />
                         </div>
 
                         <div class="mb-3">
                             <label for="txtImagen" class="form-label">Imagen</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="txtImagen"
-                                id="txtImagen"
-                                aria-describedby="helpId"
-                                placeholder="Seleccione la imagen"
-                            />
-                            <small id="helpId" class="form-text text-muted">Help text</small>
+                            <input type="text" class="form-control" name="txtImagen" id="txtImagen"
+                                aria-describedby="helpId" placeholder="Seleccione la imagen" />
                         </div>
                         
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Agregar
+                        </button>
                         
+
 
 
                     </form>
@@ -40,7 +35,31 @@
             </div>
         </div>
         <div class="col-md-7">
-            Second Column
+            <div
+                class="table-responsive"
+            >
+                <table
+                    class="table table-light"
+                >
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td scope="row">1</td>
+                            <td>algun producto</td>
+                            <td>imagen.jpg</td>
+                            <td>Eliminar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
 
     </div>
