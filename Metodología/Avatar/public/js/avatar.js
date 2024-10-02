@@ -1,3 +1,16 @@
+// variables globales
+const mensajesAcumulados = []; // Para almacenar todos los mensajes de la pelea
+const sectionReiniciar = document.getElementById('reiniciar');
+const botonPersonajeJugador = document.getElementById('boton-personaje');
+
+const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+const mensajes = document.getElementById('mensajes');
+const botonDetallePelea = document.getElementById('boton-detalle-pelea');
+const visibilityDeFormularioPersonaje = document.getElementById('form-creacion-de-personaje');
+const contenedorPersonajes = document.getElementById('contenedor-personajes');
+
+
+
 // Clase Personaje que recibirá un objeto para construir el personaje
 class Personaje {
     constructor({ id, nombre }) {
@@ -31,7 +44,6 @@ class AvatarGame {
 
     // Función para generar los botones de personajes dinámicamente
     crearBotonesPersonajes() {
-        const contenedorPersonajes = document.getElementById('contenedor-personajes');
         contenedorPersonajes.innerHTML = ''; // Limpiamos el contenedor
         this.personajes.forEach(personaje => {
             const botonPersonaje = personaje.generarBoton();
@@ -41,40 +53,32 @@ class AvatarGame {
     }
 
     iniciarJuego() {
-        const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+        
         sectionSeleccionarAtaque.style.display = 'none';
-        const botonPersonajeJugador = document.getElementById('boton-personaje');
         botonPersonajeJugador.addEventListener('click', () => this.seleccionarPersonajeJugador());
-        const sectionReiniciar = document.getElementById('reiniciar');
         sectionReiniciar.style.display = "none";
-        const mensajes = document.getElementById('mensajes');
-        mensajes.style.display = "none"; // Inicialmente oculto
+        //mensajes.style.display = "none"; // Inicialmente oculto
 
         document.getElementById("reglas-del-juego").style.display = "none";
-
         document.getElementById('boton-reglas').addEventListener('click', () => this.mostrarReglas());
         document.getElementById('boton-jugar').style.display = 'none';
         document.getElementById('seleccionar-personaje').style.display = 'block';
-
         document.getElementById('boton-punio').addEventListener('click', () => this.ataque('Punio'));
         document.getElementById('boton-patada').addEventListener('click', () => this.ataque('Patada'));
         document.getElementById('boton-barrida').addEventListener('click', () => this.ataque('Barrida'));
         document.getElementById('boton-reiniciar').addEventListener('click', () => this.reiniciarJuego());
 
         // Agrega el evento para el botón de detalle de pelea
-        const botonDetallePelea = document.getElementById('boton-detalle-pelea');
         botonDetallePelea.addEventListener('click', () => this.detallePelea())
 
         //crear un nuevo personaje 
         const botonCreacionDePersonaje = document.getElementById('boton-crear-personaje');
         botonCreacionDePersonaje.addEventListener('click', () => this.detallePelea())
 
-
         //crear un nuevo personaje 
         const botonMostrarOcultarFormulario = document.getElementById('boton-crear-personaje');
         botonMostrarOcultarFormulario.addEventListener('click', () => this.mostrarCreacionDeFormDePersonaje())
         //ocultar formulario de creacion de personaje
-        const visibilityDeFormularioPersonaje = document.getElementById('form-creacion-de-personaje');
         visibilityDeFormularioPersonaje.style.display = 'none'
 
         const botonSubmitCreacionDePersonaje = document.getElementById('boton-crea-un-personaje');
@@ -107,7 +111,7 @@ class AvatarGame {
         this.personajes.push(nuevoPersonaje);
     
         // Crear un botón para el nuevo personaje y agregarlo al contenedor
-        const contenedorPersonajes = document.getElementById('contenedor-personajes');
+        
         const botonPersonaje = nuevoPersonaje.generarBoton();
         botonPersonaje.addEventListener('click', () => this.seleccionarPersonaje(botonPersonaje));
         contenedorPersonajes.appendChild(botonPersonaje);
@@ -116,26 +120,29 @@ class AvatarGame {
         //console.log('Personajes actuales:', this.personajes);
     }
 
-    // Nueva función para mostrar/ocultar el detalle de la pelea
-    detallePelea() {
-        //console.log("Botón de detalle de pelea presionado"); // Verifica si se llama
-        const mensajes = document.getElementById('mensajes');
-        const botonDetallePelea = document.getElementById('boton-detalle-pelea');
-
-        if (mensajes.style.display === "block") {
-            mensajes.style.display = "none"; // Oculta los mensajes
-            botonDetallePelea.innerText = 'Ver Detalle Pelea';
-        } else {
+   detallePelea() {
+           
+        // Verifica si el estilo de display es 'none' o no está definido (inicialmente vacío)
+        if (mensajes.style.display === "none" || mensajes.style.display === "") {
+            // Mostrar todos los mensajes acumulados
             mensajes.style.display = "block";
-           // console.log("ëntra?");
             botonDetallePelea.innerText = 'Ocultar Detalle Pelea';
-
+    
+            // Mostrar todos los mensajes acumulados
+            mensajes.innerHTML = mensajesAcumulados.map(mensaje => `<p>${mensaje}</p>`).join('');
+    
+            // Desplazar hacia el final del contenedor de mensajes
+            window.scrollTo(0, document.body.scrollHeight);
+        } else {
+            // Oculta los mensajes
+            mensajes.style.display = "none";
+            botonDetallePelea.innerText = 'Ver Detalle Pelea';
         }
-        window.scrollTo(0, document.body.scrollHeight); // Desplaza la vista hacia abajo
     }
+    
+    
 
     mostrarCreacionDeFormDePersonaje() {
-        const visibilityDeFormularioPersonaje = document.getElementById('form-creacion-de-personaje');
         visibilityDeFormularioPersonaje.style.display = 'flex'
     }
 
@@ -143,10 +150,9 @@ class AvatarGame {
         document.getElementById("reglas-del-juego").style.display = "block";
         document.getElementById('boton-jugar').style.display = 'block';
         document.getElementById('boton-reglas').style.display = 'none';
-        const visibilityDeFormularioPersonaje = document.getElementById('form-creacion-de-personaje');
         visibilityDeFormularioPersonaje.style.display = 'none'
         document.getElementById('seleccionar-personaje').style.display = 'none';
-        document.getElementById('boton-jugar').addEventListener('click', () => this.seleccionarPersonajeJugador());
+        document.getElementById('boton-jugar').addEventListener('click', () => this.reiniciarJuego()); 
         window.scrollTo(0, document.body.scrollHeight);
     }
 
@@ -160,7 +166,7 @@ class AvatarGame {
     }
 
     seleccionarPersonajeJugador() {
-        const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+        
         sectionSeleccionarAtaque.style.display = 'block'; // Mostramos la sección de ataque
         document.getElementById('boton-reglas').style.display = 'none';
         const sectionSeleccionarPersonaje = document.getElementById('seleccionar-personaje');
@@ -169,7 +175,6 @@ class AvatarGame {
         const personajeSeleccionado = document.querySelector('.personaje.selected');
         document.getElementById("reglas-del-juego").style.display = "none";
         document.getElementById('boton-reglas').style.display = 'none';
-        const visibilityDeFormularioPersonaje = document.getElementById('form-creacion-de-personaje');
         visibilityDeFormularioPersonaje.style.display = 'none'
 
         if (personajeSeleccionado) {
@@ -259,21 +264,48 @@ class AvatarGame {
         }
     }
 
+    // Con este codigo los mensajes se acumulan!
+    //crearMensaje(resultado) {
+    //    let parrafo = document.createElement('p');
+    //    parrafo.innerHTML = `Tu personaje atacó con ${this.ataqueJugador}, el personaje del enemigo atacó con ${this.ataqueEnemigo}. ${resultado}`;
+    //    const mensajes = document.getElementById('mensajes'); // Asegúrate de que esto esté aquí
+    //    mensajes.appendChild(parrafo);
+    //}
+
+
+
     crearMensaje(resultado) {
-        let parrafo = document.createElement('p');
-        parrafo.innerHTML = `Tu personaje atacó con ${this.ataqueJugador}, el personaje del enemigo atacó con ${this.ataqueEnemigo}. ${resultado}`;
-        const mensajes = document.getElementById('mensajes'); // Asegúrate de que esto esté aquí
-        mensajes.appendChild(parrafo);
+        const mensaje = `Tu personaje atacó con ${this.ataqueJugador}, el personaje del enemigo atacó con ${this.ataqueEnemigo}. ${resultado}`;
+        
+        // Almacenar el mensaje en el array de mensajes acumulados
+        mensajesAcumulados.push(mensaje);
+        
+        // Mostrar solo el último mensaje mientras se juega
+        
+        mensajes.innerHTML = `<p>${mensaje}</p>`;
     }
 
-    crearMensajeFinal(mensaje) {
-        const mensajes = document.getElementById('mensajes');
-        mensajes.innerHTML += `<p>${mensaje}</p>`;
+
+
+    crearMensajeFinal(mensajeFinal) {
+        
+        
+        // Crear el elemento del mensaje final y agregarlo antes del resto de mensajes
+        const parrafoFinal = document.createElement('p');
+        //mensajes.innerHTML += `<p>${mensaje}</p>`;
+        // Resaltar el mensaje final añadiendo la clase 'resaltado'
+        parrafoFinal.innerHTML += `<p class="resaltado">${mensajeFinal}</p>`;
+        
+        // Insertar el mensaje final al inicio del contenedor de mensajes
+        mensajes.prepend(parrafoFinal);
+    
+        // Mostrar el botón de reiniciar y deshabilitar los botones de ataque
         document.getElementById('reiniciar').style.display = 'block'; // Mostrar botón de reiniciar
-        document.querySelectorAll('button').forEach(boton => boton.disabled = true); // Deshabilitar botones de ataque
-        document.getElementById('boton-detalle-pelea').disabled = false; // Para habilitar el botón boton-reiniciar
-        document.getElementById('boton-reiniciar').disabled = false;
+        document.querySelectorAll('button').forEach(boton => boton.disabled = true); // Deshabilitar todos los botones
+        document.getElementById('boton-detalle-pelea').disabled = false; // Dejar habilitado el botón de detalle de pelea
+        document.getElementById('boton-reiniciar').disabled = false; // Habilitar el botón de reiniciar
     }
+    
 
     reiniciarJuego() {
         location.reload(); // Reinicia el juego
