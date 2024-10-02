@@ -70,12 +70,14 @@ h1 {
     text-align: center;
     width: 100%;
     margin: 10px 0px; /* Margen superior e inferior */
-    padding: 30px;
+    padding: 50px;
     background-image: url('../assets/logo.png');
     background-size: 300px 100px; /* Ajusta el tamaño de la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
     height: 100px; /* Ajusta la altura según el tamaño de tu imagen */
+    margin-bottom: 10px;
+    
 
 }
 
@@ -173,6 +175,27 @@ button:hover {
 	margin: 5px;
 	width: 100%;
 }
+
+.resaltar {
+    font-size: 24px;
+    color: #FFD700; /* Dorado */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    margin-top: 20px;
+}
+
+.resaltado {
+    font-size: 24px;
+    color: #FFD700; /* Dorado */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    
+    margin-top: 20px;
+}
+
 
 /* Responsividad */
 /* @media (max-width: 600px) { */
