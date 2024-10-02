@@ -28,7 +28,10 @@ def products():
 
 @app.route('/admin/products/send', methods=['POST'])
 def admin_products_send():
-    print(request.form['txtNombre'])
+    _name = request.form['txtNombre']
+    _file = request.files['txtImagen']
+    print(_name)
+    print(_file)
     return redirect('/admin/products')
 
 if __name__ == '__main__':
