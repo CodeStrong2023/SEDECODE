@@ -15,7 +15,7 @@ productos.forEach((product)=>{
                     <div class="card-body">
                         <h5 class="card-title">${product.ProductName}</h5>
                         <p class="card-text">
-                            ${product.price}
+                            ${product.price}$
                         </p>
                         <p class="card-text">
                             <small class="text-muted">Last updated 3 mins ago</small>
