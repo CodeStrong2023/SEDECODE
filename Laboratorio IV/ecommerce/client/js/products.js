@@ -29,7 +29,7 @@ const productos = [
     },
     {
         id: 5,
-        ProductName: "Led-Zepellin",
+        ProductName: "Led-Zeppelin",
         price: 120,
         quanty: 1,
         img: "https://acdn.mitiendanube.com/stores/614/494/products/pic_20200904_143633-02b4a3653de8fae37315992411938651-480-0.jpg",
