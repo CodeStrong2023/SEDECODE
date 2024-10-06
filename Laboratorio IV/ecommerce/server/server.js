@@ -3,6 +3,19 @@ const app = express();
 const cors = require("cors");
 const mercadopago = require("mercadopago");
 const path = require("path")
+const { Client } = require('pg') // Funcion que me permite conectarme a la bd
+
+
+const connectionData = {
+	user: 'sedecode',
+	host: 'localhost',
+	database: 'sedecode',
+	password: 'sedecode',
+	port: 5432,
+  }
+  const client = new Client(connectionData)
+
+  client.connect()
 
 // REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
 mercadopago.configure({
@@ -57,6 +70,20 @@ app.get('/feedback', function (req, res) {
 	});
 });
 
+
+// Nueva ruta para traer datos de dim_product
+app.get('/api/productos', async (req, res) => {
+	try {
+	  const result = await client.query('SELECT * FROM public.dim_product_laboratorio');
+	  res.status(200).json(result.rows); // Enviamos los datos obtenidos en formato JSON
+	} catch (err) {
+	  console.error(err);
+	  res.status(500).json({ error: 'Error al consultar los productos' });
+	}
+  });
+  
+
 app.listen(8080, () => {
 	console.log("The server is now running on Port 8080");
 });
+

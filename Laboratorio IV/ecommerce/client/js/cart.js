@@ -56,8 +56,8 @@ function displayCart() {
     totalElement.innerHTML = `
         <span><strong>Total:</strong></span>
         <div><strong>$${totalPrice.toFixed(2)}</strong></div>
-        <button type="button" class="btn btn-primary">Comprar</button>
-        <div id="button-checkout"></div>
+        <button type="button" id="button-checkout" class="btn btn-primary">Comprar</button>
+    
     `;
     modalFooter.appendChild(totalElement);
 
@@ -68,8 +68,8 @@ function displayCart() {
     const checkoutButton = modalFooter.querySelector("#button-checkout");
 
     checkoutButton.addEventListener("click", function () {
-        checkoutButton.remove();
-
+        console.log("ëntre");
+        
         const orderData = {
             quantity: 1,
             description: "compra en el e-commerce",
@@ -100,6 +100,7 @@ function displayCart() {
 
         const renderComponent = async (bricksBuilder) => {
             //if (window.checkoutButton) window.checkoutButton.unmount();
+            checkoutButton.innerText = "Pagar Ahora";
             await bricksBuilder.create(
                 'wallet',
                 'button-checkout', // class/id where the payment button will be displayed
