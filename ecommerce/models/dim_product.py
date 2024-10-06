@@ -10,8 +10,9 @@ class DimProduct(base):
     """
     __tablename__ = 'dim_product'
     sk_product = Column(Integer, primary_key=True, autoincrement=True)
-    product_name = Column(Text)
-    product_price = Column(Float)
-    product_stock = Column(Integer)
+    product_name = Column(Text, nullable=False)
+    product_price = Column(Float, nullable=False)
+    product_stock = Column(Integer, nullable=False)
+    product_url = Column(Text, nullable=False)
     created_at = Column(DateTime, server_default=func.now(), nullable=False)
     updated_at = Column(DateTime, onupdate=func.now(), nullable=False)
