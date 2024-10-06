@@ -1,5 +1,6 @@
 from base_model import DatabaseTableBuilder
 from dim_product import DimProduct
+from dim_client import DimClient
 import logging
 
 

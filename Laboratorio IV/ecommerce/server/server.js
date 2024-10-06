@@ -83,6 +83,35 @@ app.get('/api/productos', async (req, res) => {
   });
   
 
+// Nueva ruta para autenticar y verificar el acceso de un usuario
+app.post('/api/user', async (req, res) => {
+	try {
+	  const { client_name, client_password } = req.body;
+  
+	  // Verificamos si se recibieron los parámetros
+	  if (!client_name || !client_password) {
+		return res.status(400).json({ error: 'Faltan parámetros: client_name o client_password' });
+	  }
+  
+	  // Consulta a la base de datos para verificar las credenciales
+	  const result = await client.query(
+		'SELECT client_name, client_password FROM public.dim_client_laboratorio WHERE client_name = $1 AND client_password = $2',
+		[client_name, client_password]
+	  );
+  
+	  // Si existe un registro con esas credenciales
+	  if (result.rows.length > 0) {
+		return res.status(200).json({ message: 'Acceso autorizado' });
+	  } else {
+		return res.status(401).json({ error: 'Credenciales incorrectas' });
+	  }
+	} catch (err) {
+	  console.error(err);
+	  res.status(500).json({ error: 'Error al consultar el usuario' });
+	}
+  });
+
+  
 app.listen(8080, () => {
 	console.log("The server is now running on Port 8080");
 });
