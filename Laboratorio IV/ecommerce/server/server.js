@@ -28,12 +28,17 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../client")));
 app.use(cors());
 
+app.get("/login", function (req, res) {
+    PathFile = path.join(__dirname, "..", "client", "media", "login.html")
+    console.log(PathFile)
+	res.sendFile(PathFile);
+});
+
 app.get("/", function (req, res) {
     PathFile = path.join(__dirname, "..", "client", "media", "index.html")
     console.log(PathFile)
 	res.sendFile(PathFile);
 });
-
 app.post("/create_preference", (req, res) => {
 
 	let preference = {

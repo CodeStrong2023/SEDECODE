@@ -11,6 +11,7 @@ class DimClient(base):
     __tablename__ = 'dim_client_laboratorio'
     sk_client = Column(Integer, primary_key=True, autoincrement=True)
     client_name = Column(Text, nullable=False, unique=True)
+    client_mail = Column(Text, nullable=False)
     client_surname = Column(Text)
     client_password = Column(Text, nullable=False)
     created_at = Column(DateTime, server_default=func.now(), nullable=False)
