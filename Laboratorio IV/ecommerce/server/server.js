@@ -91,17 +91,17 @@ app.get('/api/productos', async (req, res) => {
 // Nueva ruta para autenticar y verificar el acceso de un usuario
 app.post('/api/user', async (req, res) => {
 	try {
-	  const { client_name, client_password } = req.body;
+	  const { client_mail, client_password } = req.body;
   
 	  // Verificamos si se recibieron los parámetros
-	  if (!client_name || !client_password) {
-		return res.status(400).json({ error: 'Faltan parámetros: client_name o client_password' });
+	  if (!client_mail || !client_password) {
+		return res.status(400).json({ error: 'Faltan parámetros: client_mail o client_password' });
 	  }
   
 	  // Consulta a la base de datos para verificar las credenciales
 	  const result = await client.query(
-		'SELECT client_name, client_password FROM public.dim_client_laboratorio WHERE client_name = $1 AND client_password = $2',
-		[client_name, client_password]
+		'SELECT client_mail, client_password FROM public.dim_client_laboratorio WHERE client_mail = $1 AND client_password = $2',
+		[client_mail, client_password]
 	  );
   
 	  // Si existe un registro con esas credenciales

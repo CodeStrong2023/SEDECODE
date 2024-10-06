@@ -1,7 +1,30 @@
 const cart = [];
 
+
+const apiSession = sessionStorage.getItem('api-session');
+
+if (apiSession === 'Acceso autorizado') {
+    // Evita redirigir si ya estás en la página de inicio
+    if (window.location.pathname !== '/') {
+        window.location.href = '/';
+    }
+} else if (!apiSession) {
+    // Evita redirigir si ya estás en la página de inicio de sesión
+    if (window.location.pathname !== '/login') {
+        window.location.href = '/login';
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     const shopContent = document.getElementById("shopContent");
+
+    const cerrarSesionBoton = document.getElementById("cerrar-sesion")
+
+    cerrarSesionBoton.addEventListener("click", () => {
+        sessionStorage.removeItem('api-session');
+        window.location.href = '/login'; 
+    });
 
     // Función para obtener productos desde la API
     async function fetchApiGetAllProduct() {
