@@ -1,2 +1,3 @@
 *.env
 Laboratorio IV/ecommerce/server/node_modules/
+Laboratorio IV/ecommerce/models/__pycache__

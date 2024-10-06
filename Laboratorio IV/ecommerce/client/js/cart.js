@@ -44,7 +44,7 @@ function displayCart() {
             <td><button class='btn btn-success btn-sm add-item' data-index="${index}">+</button></td>
         `;
         tableBody.appendChild(row);
-        
+
         // Calculamos el precio total de los productos
         totalPrice += item.price * item.quanty;
     });
@@ -55,9 +55,68 @@ function displayCart() {
     totalElement.className = "d-flex justify-content-between align-items-center";
     totalElement.innerHTML = `
         <span><strong>Total:</strong></span>
-        <span><strong>$${totalPrice.toFixed(2)}</strong></span>
+        <div><strong>$${totalPrice.toFixed(2)}</strong></div>
+        <button type="button" class="btn btn-primary">Comprar</button>
+        <div id="button-checkout"></div>
     `;
     modalFooter.appendChild(totalElement);
+
+    const mercadopago = new MercadoPago("TEST-15e4302f-53c5-4c60-bf9d-6f94ab4bf84e", {
+        locale: "es-AR",
+    });
+
+    const checkoutButton = modalFooter.querySelector("#button-checkout");
+
+    checkoutButton.addEventListener("click", function () {
+        checkoutButton.remove();
+
+        const orderData = {
+            quantity: 1,
+            description: "compra en el e-commerce",
+            price: totalPrice
+        };
+
+        fetch("http://localhost:8080/create_preference", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(function (response) {
+                return response.json();
+        })
+            .then(function (preference) {
+                createCheckOutButton(preference.id);
+            })
+            .catch(function () {
+                alert("error inesperado");
+            });
+    });
+
+    function createCheckOutButton(preferenceId) {
+        // Initialize the checkout
+        const bricksBuilder = mercadopago.bricks();
+
+        const renderComponent = async (bricksBuilder) => {
+            //if (window.checkoutButton) window.checkoutButton.unmount();
+            await bricksBuilder.create(
+                'wallet',
+                'button-checkout', // class/id where the payment button will be displayed
+                {
+                    initialization: {
+                        preferenceId: preferenceId
+                    },
+                    callbacks: {
+                        onError: (error) => console.error(error),
+                        onReady: () => { }
+                    }
+                }
+            );
+        };
+        window.checkoutButton = renderComponent(bricksBuilder);
+    }
+
 
     // Agregar eventos a los botones de eliminar
     const removeButtons = document.querySelectorAll('.remove-item');
