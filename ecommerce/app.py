@@ -1,4 +1,11 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
+import psycopg2
+import os
+from dotenv import load_dotenv
+
+
+# Cargar las variables del archivo .env
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -33,6 +40,55 @@ def admin_products_send():
     print(_name)
     print(_file)
     return redirect('/admin/products')
+
+#Genero la conexión a la Base de Datos
+@app.route('/test_db_connection')
+def get_db_connection():
+    conn = psycopg2.connect(
+        host=os.getenv('HOST'),
+        database=os.getenv('DATABASE'),
+        user=os.getenv('POSTGRESQL_USER'),
+        password=os.getenv('PASSWORD')
+    )
+    return conn
+
+@app.route('/productos', methods=['GET'])
+def get_products():
+    """
+    Obtiene una lista de productos de la base de datos y la devuelve en formato JSON.
+
+    Retorna:
+        - JSON con una lista de productos, cada uno con:
+            - product_name (str): Nombre del producto.
+            - product_price (float): Precio del producto.
+            - product_url (str): URL de la imagen del producto.
+        - En caso de error, devuelve un mensaje de error.
+    """   
+    # Conexión a la base de datos
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    try:
+        cur.execute("SELECT product_name, product_price, product_url FROM dim_product")
+        products = cur.fetchall()
+
+        products_list = []
+        for product in products:
+            product_dict = {
+                'product_name': product[0],
+                'product_price': product[1],
+                'product_url': product[2]
+            }
+            products_list.append(product_dict)
+        return jsonify(products)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)})
+    
+    finally:
+        cur.close()
+        conn.close()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
