@@ -1,3 +1,4 @@
+//import { addToCart, getCart } from './cart.js';
 // Función para obtener productos desde la API
 async function fetchProducts() {
     try {
@@ -34,8 +35,13 @@ function displayProducts(products) {
         <img src="${product.product_url}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${product.product_name}</h5>
-          <p class="card-text">${product.product_price}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">${product.product_price}$</p>
+          <button class="btn btn-primary add-to-cart" 
+                                data-name="${product.product_name}" 
+                                data-price="${product.product_price}" 
+                                data-url="${product.product_url}">
+                            Agregar al carrito
+          </button>
         </div>
       </div>
     </div>
@@ -44,6 +50,8 @@ function displayProducts(products) {
 
     // Insertamos todo el HTML de una sola vez
     shopContent.innerHTML = htmlContent;
+
+    
 
 }
 
