@@ -80,7 +80,7 @@ def get_products():
                 'product_url': product[2]
             }
             products_list.append(product_dict)
-        return jsonify(products)
+        return jsonify(products_list)
     
     except Exception as e:
         return jsonify({'error': str(e)})
