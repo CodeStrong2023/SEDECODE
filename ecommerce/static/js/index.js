@@ -1,4 +1,3 @@
-//import { addToCart, getCart } from './cart.js';
 // Función para obtener productos desde la API
 async function fetchProducts() {
     try {
@@ -51,9 +50,28 @@ function displayProducts(products) {
     // Insertamos todo el HTML de una sola vez
     shopContent.innerHTML = htmlContent;
 
+    // Agregar evento para botones "Agregar al carrito"
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    //console.log(addToCartButtons);  // Verifica si hay elementos seleccionados
     
-
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productName = button.getAttribute('data-name');
+            const productPrice = button.getAttribute('data-price');
+            const productUrl = button.getAttribute('data-url');
+    
+            const product = {
+                name: productName,
+                price: productPrice,
+                url: productUrl
+            };
+    
+            // Llamar a la función para agregar al carrito
+            addToCart(product);
+        });
+    });
 }
+
 
 // Función principal para obtener los productos y mostrarlos
 async function main() {
