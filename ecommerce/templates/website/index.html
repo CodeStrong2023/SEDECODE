@@ -1,37 +1,38 @@
-
 {% include 'website/header.html' %}
 
 <div id="shopContent" class="row"> <!-- Este es el contenedor para los productos -->
     <!-- Los productos se insertarán aquí -->
 </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabel">Cart</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Los productos seleccionados se insertarán aquí -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel">Cart</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Los productos seleccionados se insertarán aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="button-checkout" class="btn btn-primary">Pagar con MercadoPago</button>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#Modal">
-        🛒
-    </button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#Modal">
+    🛒
+</button>
 
 
-    <script type="module" src="{{url_for('static', filename= 'js/cart.js')}}"></script>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script type="module" src="{{url_for('static', filename= 'js/cart.js')}}"></script>
 <script type="module" src="{{url_for('static', filename= 'js/index.js')}}"></script>
+
 
 {% include 'website/footer.html' %}

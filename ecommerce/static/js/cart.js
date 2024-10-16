@@ -1,5 +1,21 @@
 let cart = [];
 
+let totalPrice = 0;
+// Configura el SDK de MercadoPago
+
+const mercadopago = new MercadoPago("TEST-15e4302f-53c5-4c60-bf9d-6f94ab4bf84e", {
+    locale: "es-AR",
+});
+
+
+/*
+// Agregar el botón de pagar al modal
+const payButton = document.createElement('button');
+payButton.classList.add('btn', 'btn-primary');
+payButton.innerText = 'Pagar con MercadoPago';
+payButton.addEventListener('click', payWithMercadoPago);
+modalBody.appendChild(payButton);
+*/
 // Función para agregar productos al carrito
 function addToCart(product) {
     // Obtenemos el carrito actual del localStorage (si existe)
@@ -38,7 +54,7 @@ function incrementItem(index) {
 // Función para disminuir la cantidad de un producto o eliminarlo si es menor a 1
 function decrementItem(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
     if (cart[index].quanty > 1) {
         cart[index].quanty -= 1; // Decrementamos la cantidad
     } else {
@@ -49,9 +65,9 @@ function decrementItem(index) {
     localStorage.setItem('cart', JSON.stringify(cart)); // Actualizamos el localStorage
     displayCart(); // Refrescamos el contenido del carrito
 }
-
 // Función para mostrar el contenido del carrito
 function displayCart() {
+    resetCheckoutButton()
     // Obtenemos el carrito actual del localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -64,6 +80,9 @@ function displayCart() {
         modalBody.innerHTML = '<p>El carrito está vacío.</p>';
         return; // Salimos de la función si el carrito está vacío
     }
+
+    // Reiniciamos el total del precio a 0
+    let totalPrice = 0;
 
     // Creamos la tabla
     const table = document.createElement('table');
@@ -98,15 +117,100 @@ function displayCart() {
             <td><button class='btn btn-success btn-sm add-item' data-index="${index}">+</button></td>
         `;
         tbody.appendChild(row);
+        // Calculamos el precio total de los productos
+        totalPrice += item.price * item.quanty;
     });
 
     table.appendChild(tbody);
     modalBody.appendChild(table);
 
+    // Crear un párrafo para mostrar el total del precio
+    const totalPriceElement = document.createElement('p');
+    totalPriceElement.textContent = `Total: $${totalPrice}`;
+
+    // Agregar el total al modal o a donde necesites en el HTML
+    modalBody.appendChild(totalPriceElement);
+
+
+    const checkoutButton = document.getElementById("button-checkout")
+
+    checkoutButton.addEventListener("click", function () {
+        console.log("ëntre");
+
+        const orderData = {
+            quantity: 1,
+            description: "E-commerce:",
+            price: totalPrice
+        };
+
+        fetch("http://127.0.0.1:5000/create_preference", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (preference) {
+                console.log(preference)
+                createCheckOutButton(preference.id);
+            })
+            .catch(function () {
+                alert("error inesperado");
+            });
+    });
+
+
+    // Función para restablecer el estado del botón "Pagar Ahora"
+    function resetCheckoutButton() {
+        const checkoutButton = document.getElementById("button-checkout");
+        checkoutButton.innerText = "Pagar con MercadoPago"; // Texto inicial
+        // Remover cualquier evento anterior para evitar duplicados
+        const newCheckoutButton = checkoutButton.cloneNode(true);
+        checkoutButton.parentNode.replaceChild(newCheckoutButton, checkoutButton);
+    }
+
+    // Evento para mostrar los productos en el carrito cuando se abre el modal
+    const cartModal = document.getElementById('Modal');
+    cartModal.addEventListener('shown.bs.modal', function () {
+        resetCheckoutButton();  // Reseteamos el botón al abrir el carrito
+        displayCart();  // Mostramos el carrito
+    });
+
+
+    function createCheckOutButton(preferenceId) {
+        const bricksBuilder = mercadopago.bricks();
+    
+        const renderComponent = async (bricksBuilder) => {
+            const checkoutButton = document.getElementById("button-checkout");
+            checkoutButton.innerText = "Pagar Ahora";  // Cambiamos el texto solo al hacer clic
+            await bricksBuilder.create(
+                'wallet',
+                'button-checkout', 
+                {
+                    initialization: {
+                        preferenceId: preferenceId
+                    },
+                    callbacks: {
+                        onError: (error) => console.error(error),
+                        onReady: () => { }
+                    }
+                }
+            );
+        };
+    
+        window.checkoutButton = renderComponent(bricksBuilder);
+    }
+
+
+
     // Agregamos eventos a los botones "+" y "-"
     document.querySelectorAll('.add-item').forEach(button => {
         button.addEventListener('click', function () {
             const index = this.getAttribute('data-index');
+            resetCheckoutButton()
             incrementItem(index);
         });
     });
@@ -114,6 +218,7 @@ function displayCart() {
     document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', function () {
             const index = this.getAttribute('data-index');
+            resetCheckoutButton() 
             decrementItem(index);
         });
     });
