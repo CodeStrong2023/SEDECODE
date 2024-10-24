@@ -73,9 +73,31 @@ def admin_login():
         
         # Aquí iría tu lógica de autenticación
         # Por ejemplo, verificar en la base de datos si el usuario y la contraseña son correctos
-        
+        # Conexión a la base de datos
+        conn = get_db_connection()
+        cur = conn.cursor()
+        try:
+            print(f'Buscando usuario: {client_mail} con contraseña: {client_password}')
+
+            cur.execute('SELECT client_mail, client_password FROM dim_client_laboratorio WHERE client_mail = %s AND client_password = %s',
+		(client_mail, client_password))
         # Si la autenticación es exitosa, redirigir o devolver un mensaje
-        return jsonify({'message': 'Login exitoso'}), 200  # Cambiar según tu lógica
+            result = cur.fetchone()  # Obtener el resultado
+
+            if result:
+                # Si se encuentra un resultado, la autenticación es exitosa
+                return jsonify({'message': 'Login exitoso'}), 200
+            else:
+                # Si no se encuentra el usuario o la contraseña es incorrecta
+                return jsonify({'message': 'Usuario o contraseña incorrectos'}), 401
+        except Exception as e:
+            # Manejo de errores, devolver mensaje de error
+            return jsonify({'error': str(e)}), 500
+        
+        finally:
+            # Cerrar el cursor y la conexión
+            cur.close()
+            conn.close()
 
     # Si la solicitud es GET, solo renderiza el formulario de login
     return render_template('admin/login.html')
