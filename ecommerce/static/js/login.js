@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("login.js está funcionando correctamente");
     const form = document.querySelector('form');
 
     const apiSession = sessionStorage.getItem('api-session');
@@ -10,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     } else if (!apiSession) {
         // Evita redirigir si ya estás en la página de inicio de sesión
-        if (window.location.pathname !== '/login') {
-            window.location.href = '/login';
+        if (window.location.pathname !== '/admin/login') {
+            window.location.href = '/admin/login';
         }
     }
 
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/api/user', {
+            const response = await fetch('/admin/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 showConfirmButton: false,
                 timer: 1500
             });
-            window.location.href = '/';
+            window.location.href = '/admin/products';
             sessionStorage.setItem('api-session', responseData.message);
         } catch (error) {
             console.error('Error:', error);

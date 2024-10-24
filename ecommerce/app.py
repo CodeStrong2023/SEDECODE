@@ -64,8 +64,20 @@ def contact_us():
 def admin_index():
     return render_template('admin/index.html')
 
-@app.route('/admin/login')
+@app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
+    if request.method == 'POST':
+        # Obtener los datos enviados por el cliente
+        client_mail = request.json.get('client_mail')
+        client_password = request.json.get('client_password')
+        
+        # Aquí iría tu lógica de autenticación
+        # Por ejemplo, verificar en la base de datos si el usuario y la contraseña son correctos
+        
+        # Si la autenticación es exitosa, redirigir o devolver un mensaje
+        return jsonify({'message': 'Login exitoso'}), 200  # Cambiar según tu lógica
+
+    # Si la solicitud es GET, solo renderiza el formulario de login
     return render_template('admin/login.html')
 
 @app.route('/admin/products')
