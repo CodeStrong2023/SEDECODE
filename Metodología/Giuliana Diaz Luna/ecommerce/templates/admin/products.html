@@ -1,0 +1,65 @@
+{% include 'admin/header.html' %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">Datos del producto</div>
+                <div class="card-body">
+                    <form action="{{ url_for('admin_products_send') }}" method="post">
+                        <div class="mb-3">
+                            <label for="txtNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Escriba el nombre del producto" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtPrecio" class="form-label">Precio</label>
+                            <input type="number" step="0.01" class="form-control" name="txtPrecio" id="txtPrecio" placeholder="Ingrese el precio del producto" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtStock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" name="txtStock" id="txtStock" placeholder="Ingrese el stock del producto" value="0"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtImagen" class="form-label">URL de Imagen</label>
+                            <input type="text" class="form-control" name="txtImagen" id="txtImagen" placeholder="Pegue la URL de la imagen" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+
+
+
+                </div>
+                <div class="card-footer text-muted">Footer</div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="table-responsive">
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for producto in productos %}
+                        <tr class="">
+                            <td scope="row">{{ producto.id }}</td>
+                            <td>{{ producto.nombre }}</td>
+                            <td>{{ producto.precio }}</td>
+                            <td>{{ producto.stock }}</td>
+                            <td><img src="{{ producto.imagen }}" alt="Imagen de {{ producto.nombre }}" width="100"></td>
+                            <td>Eliminar</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'admin/footer.html' %}
