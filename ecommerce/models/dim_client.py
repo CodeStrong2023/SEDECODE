@@ -15,4 +15,4 @@ class DimClient(base):
     client_address = Column(Text)
     client_cellphone = Column(Text)
     created_at = Column(DateTime, server_default=func.now(), nullable=False)
-    # TODO: Definir sí hacemos una tabla para las tarjetas de crédito
+    # TODO: Definir sí hacemos una tabla para las tarjetas de crédito.
