@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 import mercadopago
 
-# Cargar las variables del archivo .env
+# Cargar las variables del archivo .env.
 load_dotenv()
 
 sdk = mercadopago.SDK('TEST-8984584947035732-110809-57e9bd7292f56485fa88e609da2c205b-444290765')
@@ -18,17 +18,17 @@ app = Flask(__name__)
 def create_preference():
     print('Entré a /create_preference')
     
-    # Obtenemos directamente los datos enviados en el JSON
+    # Obtenemos directamente los datos enviados en el JSON.
     cart_item = request.json  # Ya que el objeto está directamente en el body
     
-    # Creamos el item para la preferencia de pago
+    # Creamos el item para la preferencia de pago.
     item = {
         'title': cart_item.get('description'),   # Asumimos que 'description' siempre está presente
         'unit_price': float(cart_item.get('price')),  # Convertimos a float
         'quantity': int(cart_item.get('quantity'))    # Convertimos a int
     }
     
-    # Datos de la preferencia de pago
+    # Datos de la preferencia de pago.
     preference_data = {
         'items': [item],  # Envolvemos el item en una lista porque MercadoPago espera una lista de items
         'back_urls': {
@@ -39,11 +39,11 @@ def create_preference():
         'auto_return': 'approved'
     }
 
-    # Llamada al SDK de MercadoPago para crear la preferencia
+    # Llamada al SDK de MercadoPago para crear la preferencia.
     preference_response = sdk.preference().create(preference_data)
     preference = preference_response['response']
 
-    # Devolvemos el ID de la preferencia al frontend
+    # Devolvemos el ID de la preferencia al frontend.
     return jsonify({
         'id': preference['id']
     })
@@ -71,9 +71,9 @@ def admin_login():
         client_mail = request.json.get('client_mail')
         client_password = request.json.get('client_password')
         
-        # Aquí iría tu lógica de autenticación
-        # Por ejemplo, verificar en la base de datos si el usuario y la contraseña son correctos
-        # Conexión a la base de datos
+        # Aquí iría tu lógica de autenticación.
+        # Por ejemplo, verificar en la base de datos si el usuario y la contraseña son correctos.
+        # Conexión a la base de datos.
         conn = get_db_connection()
         cur = conn.cursor()
         try:
@@ -81,25 +81,25 @@ def admin_login():
 
             cur.execute('SELECT client_mail, client_password FROM dim_client_laboratorio WHERE client_mail = %s AND client_password = %s',
 		(client_mail, client_password))
-        # Si la autenticación es exitosa, redirigir o devolver un mensaje
-            result = cur.fetchone()  # Obtener el resultado
+        # Si la autenticación es exitosa, redirigir o devolver un mensaje.
+            result = cur.fetchone()  # Obtener el resultado.
 
             if result:
-                # Si se encuentra un resultado, la autenticación es exitosa
+                # Si se encuentra un resultado, la autenticación es exitosa.
                 return jsonify({'message': 'Login exitoso'}), 200
             else:
-                # Si no se encuentra el usuario o la contraseña es incorrecta
+                # Si no se encuentra el usuario o la contraseña es incorrecta.
                 return jsonify({'message': 'Usuario o contraseña incorrectos'}), 401
         except Exception as e:
-            # Manejo de errores, devolver mensaje de error
+            # Manejo de errores, devolver mensaje de error.
             return jsonify({'error': str(e)}), 500
         
         finally:
-            # Cerrar el cursor y la conexión
+            # Cerrar el cursor y la conexión.
             cur.close()
             conn.close()
 
-    # Si la solicitud es GET, solo renderiza el formulario de login
+    # Si la solicitud es GET, solo renderiza el formulario de login.
     return render_template('admin/login.html')
 
 @app.route('/admin/products')
@@ -114,7 +114,7 @@ def admin_products_send():
     print(_file)
     return redirect('/admin/products')
 
-#Genero la conexión a la Base de Datos
+#Genero la conexión a la Base de Datos.
 @app.route('/test_db_connection')
 def get_db_connection():
     conn = psycopg2.connect(
@@ -137,7 +137,7 @@ def get_products():
             - product_url (str): URL de la imagen del producto.
         - En caso de error, devuelve un mensaje de error.
     """   
-    # Conexión a la base de datos
+    # Conexión a la base de datos.
     conn = get_db_connection()
     cur = conn.cursor()
 
