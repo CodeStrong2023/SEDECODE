@@ -19,7 +19,7 @@ def create_preference():
     print('Entré a /create_preference')
     
     # Obtenemos directamente los datos enviados en el JSON.
-    cart_item = request.json  # Ya que el objeto está directamente en el body
+    cart_item = request.json  # Ya que el objeto está directamente en el body.
     
     # Creamos el item para la preferencia de pago.
     item = {
