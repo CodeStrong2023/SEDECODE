@@ -1,11 +1,14 @@
+# Se usa para manejar y estructurar los datos en un formato de tabla (DataFrame)
 import pandas as pd
 from utils import connection
 from datetime import datetime
 
+
 def main():
     # Crear un DataFrame con los datos
     data = {
-        'product_name': ['RATATOUILLE', 'ESCARGOTS DE BOURGOGNE', 'ANCAS DE RANA', 'MACARRONES', 'CROQUE-MONSIEUR', 'CROQUE-MADAME'],
+        'product_name': ['RATATOUILLE', 'ESCARGOTS DE BOURGOGNE', 'ANCAS DE RANA', 'MACARRONES', 'CROQUE-MONSIEUR',
+                         'CROQUE-MADAME'],
         'product_price': [200, 15.50, 39.99, 99.99, 5.49, 6.87],
         'product_stock': [100, 50, 200, 25, 500, 89],
         'product_url': [
@@ -18,6 +21,7 @@ def main():
         ],
     }
 
+# Creación del DataFrame:
     df = pd.DataFrame(data)
     df['created_at'] = datetime.now()
     df['updated_at'] = datetime.now()
@@ -25,5 +29,7 @@ def main():
     # Insertar los datos en la tabla dim_product_laboratorio
     df.to_sql('dim_product', connection(), if_exists='append', index=False)
 
+
+# Ejecución del script:
 if __name__ == "__main__":
     main()
