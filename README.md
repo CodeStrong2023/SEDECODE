@@ -26,3 +26,4 @@ Bistro Bon Appétit es un ecommerce diseñado para ofrecer productos gourmet fra
    ```bash
    git clone https://github.com/CodeStrong2023/SEDECODE.git
    cd SEDECODE
+   Modificacion temporal
