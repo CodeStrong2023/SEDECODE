@@ -29,22 +29,24 @@ function displayProducts(products) {
     // Iteramos sobre los productos para generar el HTML
     products.forEach(product => {
         htmlContent += `
-            <div class="col-md-3 mt-5">
-      <div class="card" style="width: 18rem;">
-        <img src="${product.product_url}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${product.product_name}</h5>
-          <p class="card-text">${product.product_price}$</p>
-          <button class="btn btn-primary add-to-cart" 
-                                data-name="${product.product_name}" 
-                                data-price="${product.product_price}" 
+            <div class="col-lg-3 col-md-4 mb-4">
+                <div class="card h-100 product-card">
+                    <img src="${product.product_url}" class="card-img-top" alt="Imagen de ${product.product_name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.product_name}</h5>
+                        <p class="card-text">Precio: $${product.product_price}</p>
+                        <button class="btn btn-custom add-to-cart"
+                                data-name="${product.product_name}"
+                                data-price="${product.product_price}"
                                 data-url="${product.product_url}">
                             Agregar al carrito
-          </button>
-        </div>
-      </div>
-    </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
         `;
+
+
     });
 
     // Insertamos todo el HTML de una sola vez
@@ -53,19 +55,19 @@ function displayProducts(products) {
     // Agregar evento para botones "Agregar al carrito"
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     //console.log(addToCartButtons);  // Verifica si hay elementos seleccionados
-    
+
     addToCartButtons.forEach(button => {
         button.addEventListener('click', () => {
             const productName = button.getAttribute('data-name');
             const productPrice = button.getAttribute('data-price');
             const productUrl = button.getAttribute('data-url');
-    
+
             const product = {
                 name: productName,
                 price: productPrice,
                 url: productUrl
             };
-    
+
             // Llamar a la función para agregar al carrito
             addToCart(product);
         });
