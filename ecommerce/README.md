@@ -16,14 +16,11 @@ Bistro Bon Appétit es un ecommerce diseñado para ofrecer productos gourmet fra
 
 ## Requisitos
 
-- [Python](https://www.python.org/) (versión 3.8 o superior)
-- [Docker](https://www.docker.com/)
-- [PostgreSQL](https://www.postgresql.org/)
+- pip install -r requirements.txt
 
 ## Instalación
 
 1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/CodeStrong2023/SEDECODE.git
-   cd SEDECODE
-   
+   cd SEDECODE/ecommerce
