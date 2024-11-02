@@ -1,0 +1,6 @@
+Flask
+psycopg2
+python-dotenv
+mercadopago
+sqlalchemy
+pandas
