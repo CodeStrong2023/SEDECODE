@@ -1,0 +1,48 @@
+.touch_text {
+    width: 100%;
+    float: left;
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.call_main {
+    width: 50%;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.read_bt {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.call_text {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.padding_left_15 {
+    padding-left: 15px;
+}
+
+.social_icon {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+.footer_section {
+    width: 100%;
+    float: left;
+    background-color: #161616;
+    height: auto;
+    padding: 150px 0px 50px 0px;
+}
