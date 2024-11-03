@@ -1,0 +1,12 @@
+.style-list {
+    background-color: #6c6252;
+    padding: 15px;
+}
+
+.style-h1-about {
+    font-family: Arial, sans-serif;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
