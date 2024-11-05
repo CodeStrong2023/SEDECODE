@@ -157,7 +157,6 @@ def admin_products_send():
     print(_file)
     return redirect('/admin/products')"""
 
-
 """@app.route('/admin/products/send', methods=['POST'])
 def admin_products_send():
     _name = request.form['txtNombre']
@@ -234,6 +233,7 @@ def get_products():
         products_list = []
         for product in products:
             product_dict = {
+                'id': product[0],  # Asigna sk_product como id
                 'product_name': product[0],
                 'product_price': product[1],
                 'product_url': product[2]
@@ -243,6 +243,25 @@ def get_products():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+    finally:
+        cur.close()
+        conn.close()
+
+
+# Ruta para eliminar productos
+@app.route('/productos/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    try:
+        cur.execute("DELETE FROM dim_product WHERE sk_product = %s", (product_id,))
+        conn.commit()
+        return jsonify({'message': 'Producto eliminado correctamente'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
     finally:
         cur.close()
