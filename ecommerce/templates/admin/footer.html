@@ -1,7 +1,7 @@
 
 <footer class="mt-auto bg-light text-dark text-center py-3">
     <div class="container">
-      <p class="mb-0">© 2024 Tu Empresa. Todos los derechos reservados.</p>
+      <p class="mb-0">© 2024 Bistro Bon Appétit. Todos los derechos reservados.</p>
       <p class="mb-0">
         <a href="#" class="text-dark">Política de Privacidad</a> |
         <a href="#" class="text-dark">Términos y Condiciones</a> |
@@ -17,5 +17,35 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const deleteButtons = document.querySelectorAll('.delete-product');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', async () => {
+                const productId = button.getAttribute('data-id');
+                if (productId) {
+                    try {
+                        const response = await fetch(`http://127.0.0.1:5000/productos/${productId}`, {
+                            method: 'DELETE',
+                        });
+                        if (response.ok) {
+                            // Elimina la fila del producto eliminado en la tabla
+                            button.closest('tr').remove();
+                            console.log('Producto eliminado correctamente');
+                        } else {
+                            console.error('Error al eliminar el producto');
+                        }
+                    } catch (error) {
+                        console.error('Error al conectar con el servidor:', error);
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+</body>
 </html>
+
