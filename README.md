@@ -25,12 +25,10 @@
   <li>Segovia, Cinthia Fernanda </li>
   <li>Diaz Luna, Giuliana Paola </li>
   <li>Lamas, Marcelo Emanuel</li>
-  <li>Nuñez, Myriam Belén</li>
-  <li>Monza, Auguto Damiánl</li>
+  <li>Monza, Auguto Damián</li>
   <li>Cámpora Lorenzo, Maria del Rosario</li>
   <li>Pintos, Daiana Araceli</li>
   <li>Aranibar, Nicolas Agustin</li>
-  <li>Rodriguez, Paulina</li>
   <li>Osores, Gabriel Hernán</li>
   
   
@@ -44,6 +42,7 @@
 | Semana 2   |          María del Rosario Campora Lorenzo          |
 | Semana 3   |              Cinthia Fernanda Segovia               |
 | Semana 4   |                Augusto Damián Monza                 |
-| Semana 5   |          **          |
-| Semana 6   |          **          |
-| Semana 7   |          **          |
+| Semana 5   |          Osores Gabriel Hernán          |
+| Semana 6   |          Aranibar Nicolas Agustin          |
+| Semana 7   |          Pintos Daiana Araceli         |
+| Semana 8   |          Lamas Marcelo Emanuel         |
