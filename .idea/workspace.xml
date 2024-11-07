@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2375284-959e-467e-84c3-101662d70892" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Clases_docs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Ejemplo.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Read_csv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Tipos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce/templates/website/footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SEDECODE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEDECODE.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/templates/admin/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/admin/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/templates/admin/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/admin/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/templates/website/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/website/contact_us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/templates/website/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/website/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +44,7 @@
     "Python.app.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/5_11/SEDECODE/ecommerce/models",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -69,5 +77,8 @@
       <workItem from="1730470345388" duration="1819000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
