@@ -36,6 +36,7 @@ Antes de comenzar con la instalación y configuración, asegúrate de tener inst
 ## Instalación y Configuración del Proyecto
 
 ### Paso 1: Clonar el Repositorio
+
 ```bash
 git clone https://github.com/CodeStrong2023/SEDECODE.git
 cd SEDECODE/ecommerce
