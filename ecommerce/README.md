@@ -24,3 +24,87 @@ Bistro Bon Appétit es un ecommerce diseñado para ofrecer productos gourmet fra
    ```bash
    git clone https://github.com/CodeStrong2023/SEDECODE.git
    cd SEDECODE/ecommerce
+
+# Manual de Ejecución para el Ecommerce "Bistro Bon Appétit"
+
+## Requisitos
+Antes de comenzar con la instalación y configuración, asegúrate de tener instaladas las siguientes herramientas y dependencias:
+- **Python** (versión 3.9.11)
+- **Docker**
+- **PostgreSQL**
+
+## Instalación y Configuración del Proyecto
+
+### Paso 1: Clonar el Repositorio
+```bash
+git clone https://github.com/CodeStrong2023/SEDECODE.git
+cd SEDECODE/ecommerce
+
+### Paso 2: Crear el archivo env
+
+POSTGRESQL_USER='postgres'
+PASSWORD='123456'
+HOST='localhost'
+PORT='5431'
+DATABASE='sedecode'
+
+### Paso 3: Crear y activar el un Entorno Virtual
+
+# Instalar virtual env
+
+pip install virtualenv
+
+# Crear el entorno virtual
+
+virtualenv sedecode
+
+# Activar el entorno virtual en Windows
+
+sedecode\Scripts\activate
+
+# Activar el entorno virtual en maCOS y Linux
+
+source sedecode/bin/activate
+
+### Paso 4: instalar las dependencias del Backend
+
+pip install Flask psycopg2 python-dotenv mercadopago sqlalchemy pandas
+
+### Paso 5: Configurar la Base de Datos
+
+POSTGRES_PASSWORD='123456'
+CONTAINER_NAME='SEDECODE'
+POSTGRES_USER='postgres'
+POSTGRES_DB='sedecode'
+POSTGRES_HOST='localhost'
+POSTGRES_PORT='5432'
+
+### Paso 6: Iniciar Docker
+
+cd container
+docker-compose up -d
+
+### Paso 7: Importar las Tablas en la Base de Datos
+# Crea un archivo .env dentro de la carpeta models con las siguientes variables:
+
+POSTGRESQL_USER='postgres'
+PASSWORD='123456'
+HOST='localhost'
+PORT='5431'
+DATABASE='sedecode'
+
+# Ejecuta el script para crear las tablas:
+python main.py
+
+### Paso 8: Iniciar el Servidor Flask
+python app.py
+
+### Uso del Proyecto
+
+# Para acceder al frontend del ecommerce: Visita http://127.0.0.1:5000.
+
+# Para gestión de productos y administración: Accede a http://127.0.0.1:5000/admin/products.
+
+
+### Con estos pasos, deberías tener todo lo necesario para instalar, configurar y ejecutar el ecommerce "Bistro Bon Appétit" correctamente. ¡A ejecutarlo!
+
