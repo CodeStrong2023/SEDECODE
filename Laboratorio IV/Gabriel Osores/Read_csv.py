@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def read_file():
 
     dataframe = pd.read_csv('ejemplo.csv', sep=',')
