@@ -1,0 +1,290 @@
+/* Fondo y Tipografía */
+body {
+    font-family: 'Arial', sans-serif;
+    /*background-color: #000; /* Fondo negro */
+
+    background-image: url('../assets/avatar.png');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/avatar.jpg');
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    
+
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor de los personajes */
+#seleccionar-personaje {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Botones de personajes */
+.personaje {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 120px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px; /* Aumenta el espacio alrededor de cada botón */
+}
+
+/* Efecto hover */
+.personaje:hover {
+    background-color: #555555; /* Color más claro para el hover */
+    transform: scale(1.05);
+}
+
+/* Estilo para el personaje seleccionado */
+
+.personaje.selected {
+    background-color: #FFD700; /* O el color que prefieras para el botón seleccionado */
+    border-color: #000;
+    color: #000; /* Un borde blanco, por ejemplo */
+}
+
+#mensajes-pelea p {
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #555;
+}
+
+
+
+h1 {
+    color: transparent; /* Oculta el texto */
+    text-align: center;
+    width: 100%;
+    margin: 10px 0px; /* Margen superior e inferior */
+    padding: 50px;
+    background-image: url('../assets/logo.png');
+    background-size: 300px 100px; /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    height: 100px; /* Ajusta la altura según el tamaño de tu imagen */
+    margin-bottom: 10px;
+    
+
+}
+
+
+
+/* Grid Layout */
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2, h4 {
+    color: #FFD700; /* Dorado */
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* Estilización de las Secciones */
+
+section{
+    background: rgba(0, 0, 0, 0.7); /* Negro con transparencia */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px; /* espacio entre secciones */
+
+    
+}
+
+#inicio {
+    background: none; /* Elimina el fondo */
+    padding: 0; /* Elimina el padding */
+    border-radius: 0; /* Elimina el border-radius */
+    box-shadow: none; /* Elimina la sombra */
+    margin-bottom: 20px; /* Elimina el margen inferior */
+    margin-top: 0px; /* Elimina el margen superior */
+}
+
+
+/* Estilización de los personajes */
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Espacio entre personajes */
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el radio button y el texto */
+}
+
+
+/* Estilización de Botones */
+
+button {
+    background-color: #DC143C; /* Firebrick */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 70%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    
+}
+
+button:hover {
+    background-color: #DC143C; /* Crimson Red */
+    transform: scale(1.05);
+}
+
+
+#reiniciar {
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+#reiniciar p {
+    margin: 10px 0;
+}
+
+#reiniciar button{
+	padding: 10px 20px;
+	font-size: 16px;
+	margin: 5px;
+	width: 100%;
+}
+
+.resaltar {
+    font-size: 24px;
+    color: #FFD700; /* Dorado */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    margin-top: 20px;
+}
+
+.resaltado {
+    font-size: 24px;
+    color: #FFD700; /* Dorado */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    
+    margin-top: 20px;
+}
+
+
+/* Responsividad */
+/* @media (max-width: 600px) { */
+    /* #container { */
+        /* width: 90%; */
+    /* } */
+    /* button { */
+        /* padding: 10px; */
+        /* font-size: 14px; */
+    /* } */
+/* } */
+
+
+#seleccionar-ataque {
+        text-align: center;
+}
+
+#seleccionar-ataque p {
+	margin: 10px 0;
+}
+
+#seleccionar-ataque button {
+	padding: 10px 20px;
+	font-size: 16px;
+	margin: 5px;
+	width: 100%;
+}
+
+@media (min-width: 600px) {
+	#seleccionar-ataque p {
+		display: flex;
+		justify-content: center;
+	}
+
+	#seleccionar-ataque button {
+		width: auto;
+		margin: 0 10px;
+	}
+	
+	#reiniciar p {
+        display: flex;
+        justify-content: center;
+    }
+	
+	#reiniciar button {
+		width: auto;
+		margin: 0 10px;
+	}
+}
+
+
+.vida-container {
+    width: 300px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.barra-vida {
+    width: 100%;
+    height: 30px;
+	border-radius: 5px;
+    background-color: green;
+    transition: width 0.5s ease;
+}
+
+
+/* Estilo del input */
+input[type="text"] {
+    width: 94%; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ced4da; /* Color del borde */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+/* Efecto al recibir foco */
+input[type="text"]:focus {
+    border-color: #80bdff; /* Color del borde al recibir foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al recibir foco */
+    outline: none; /* Elimina el contorno por defecto */
+    margin-top: 20px;
+}
+
+/* Placeholder */
+input[type="text"]::placeholder {
+    color: #6c757d; /* Color del placeholder */
+    opacity: 1; /* Asegura que el color sea visible */
+}
