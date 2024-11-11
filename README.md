@@ -1,5 +1,6 @@
 
-<h1 align="center">SEDECODE - 4to Semestre  </h1>
+<h1 align="center">SEDECODE </h1>
+
 <br>
 
 <div align="right">
@@ -20,6 +21,7 @@
  
 </p>
 
+
 <h3>Colaboradores: </h3><br>
 <ul>
   <li>Segovia, Cinthia Fernanda </li>
@@ -38,11 +40,16 @@
 
 | *Sprint* |            *Scrum Master Asignado* 👨‍💻            |
 |------------|:-----------------------------------------------------:|
-| Semana 1   | Giuliana Paola Diaz luna - Metodologoia de Sistemas |
+| Semana 1   |          Giuliana Paola Diaz luna  |
 | Semana 2   |          María del Rosario Campora Lorenzo          |
-| Semana 3   |              Cinthia Fernanda Segovia               |
-| Semana 4   |                Augusto Damián Monza                 |
+| Semana 3   |          Cinthia Fernanda Segovia               |
+| Semana 4   |          Augusto Damián Monza                 |
 | Semana 5   |          Osores Gabriel Hernán          |
 | Semana 6   |          Aranibar Nicolas Agustin          |
 | Semana 7   |          Pintos Daiana Araceli         |
 | Semana 8   |          Lamas Marcelo Emanuel         |
+| Semana 9   |          Giuliana Paola Diaz luna  | 
+| Semana 10  |          María del Rosario Campora Lorenzo | 
+| Semana 11  |          Cinthia Fernanda Segovia | 
+| Semana 12  |          Augusto Damián Monza | 
+| Semana 13  |          Osores Gabriel Hernán |
