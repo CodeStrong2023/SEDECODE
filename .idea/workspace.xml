@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2375284-959e-467e-84c3-101662d70892" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/menu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/usuario.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laboratorio IV/Fernanda Segovia/C 1/cursor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Python Script" />
       </list>
     </option>
@@ -80,7 +86,7 @@
       <workItem from="1731423695064" duration="801000" />
       <workItem from="1731592473425" duration="252000" />
       <workItem from="1731598786143" duration="655000" />
-      <workItem from="1731710429675" duration="314000" />
+      <workItem from="1731710429675" duration="1583000" />
     </task>
     <servers />
   </component>
