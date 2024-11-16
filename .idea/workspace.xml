@@ -4,26 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2375284-959e-467e-84c3-101662d70892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Clases_docs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Ejemplo.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Read_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboratorio IV/Gabriel Osores/Tipos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecommerce/templates/website/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SEDECODE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEDECODE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/admin/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/admin/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/admin/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/admin/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/website/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/website/contact_us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/website/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/website/footer.html" afterDir="false" />
-    </list>
+    <list default="true" id="c2375284-959e-467e-84c3-101662d70892" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,17 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
-    "last_opened_file_path": "C:/5_11/SEDECODE/ecommerce/models",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Fernanda&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/5_11/SEDECODE/ecommerce/models&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.and.region&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\5_11\SEDECODE\ecommerce\models" />
@@ -60,7 +57,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -75,10 +73,29 @@
       <workItem from="1730225699615" duration="497000" />
       <workItem from="1730462401340" duration="637000" />
       <workItem from="1730470345388" duration="1819000" />
+      <workItem from="1731365781016" duration="162000" />
+      <workItem from="1731370346795" duration="707000" />
+      <workItem from="1731422327868" duration="1267000" />
+      <workItem from="1731423695064" duration="801000" />
+      <workItem from="1731592473425" duration="252000" />
+      <workItem from="1731598786143" duration="655000" />
+      <workItem from="1731710429675" duration="1583000" />
+      <workItem from="1731759236104" duration="948000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
