@@ -29,7 +29,7 @@ class Usuario:
 
     @password.setter
     def password(self, password):
-        self.password = passwordclass Usuario:
+        self.password = passwordclassUsuario
     def __init__(self, id_usuario: None, username: None, password: None):
         self.id_usuario = id_usuario
         self.username = username
@@ -61,3 +61,4 @@ class Usuario:
     @password.setter
     def password(self, password):
         self.password = password
+        
